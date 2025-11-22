@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Protocol - FitLock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Mono"', 'monospace'],
+                        dot: ['"DotGothic16"', 'sans-serif'],
+                    },
+                    colors: {
+                        'nothing-red': '#D71921',
+                    },
+                    backgroundImage: {
+                        'grid-light': 'radial-gradient(#e5e5e5 1px, transparent 1px)',
+                        'grid-dark': 'radial-gradient(#333 1px, transparent 1px)',
+                    },
+                    backgroundSize: {
+                        'grid-pattern': '24px 24px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+            border-left: 1px solid rgba(128, 128, 128, 0.2);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 0;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D71921;
+        }
+
+        .dot-text {
+            font-family: 'DotGothic16', sans-serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gray-50 text-black dark:bg-black dark:text-white transition-colors duration-300 bg-[size:24px_24px] bg-grid-light dark:bg-grid-dark overflow-x-hidden selection:bg-nothing-red selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-black/10 dark:border-white/20 transition-colors duration-300"
+        data-aos="fade-down">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <img src="logo.png" alt="FitLock Logo" class="h-12 w-12 rounded-lg">
+                    <a href="index.html" class="dot-text text-3xl tracking-widest uppercase">FitLock</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle"
+                        class="p-2 border border-black/20 dark:border-white/20 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all mr-4">
+                        <!-- Sun Icon -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <!-- Moon Icon -->
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+                    <a href="index.html"
+                        class="group flex items-center text-sm uppercase tracking-widest hover:text-nothing-red transition-colors">
+                        <span class="mr-2 group-hover:-translate-x-1 transition-transform">&lt;</span> Back
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-12 border-b border-black/10 dark:border-white/20 pb-8" data-aos="fade-up">
+                <h1 class="dot-text text-4xl md:text-6xl uppercase mb-4">Privacy Protocol</h1>
+                <div class="flex items-center space-x-2 text-gray-500 text-xs uppercase tracking-widest">
+                    <span>Last Update:</span>
+                    <span class="text-black dark:text-white">2025-11-20</span>
+                    <span>//</span>
+                    <span>Status:</span>
+                    <span class="text-green-600 dark:text-green-500">Secure</span>
+                </div>
+            </div>
+
+            <div class="space-y-12" data-aos="fade-up" data-aos-delay="200">
+
+                <!-- Introduction -->
+                <section>
+                    <p
+                        class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 border-l-2 border-black/20 dark:border-white/20 pl-6">
+                        FitLock operates on a strict zero-knowledge architecture. We do not collect, store, or transmit
+                        your personal data. Your digital footprint remains exclusively on your device.
+                    </p>
+                </section>
+
+                <!-- TL;DR -->
+                <section
+                    class="border border-black/20 dark:border-white/20 p-8 relative bg-white dark:bg-white/5 transition-colors duration-300">
+                    <div
+                        class="absolute -top-3 left-6 bg-white dark:bg-black px-2 text-xs text-black dark:text-white uppercase tracking-widest border border-black/20 dark:border-white/20 transition-colors">
+                        Summary</div>
+                    <ul class="space-y-4 mt-2">
+                        <li class="flex items-start">
+                            <span class="text-nothing-red mr-4 font-bold">>></span>
+                            <span class="uppercase tracking-wide text-sm">Zero Personal Data Collection</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-nothing-red mr-4 font-bold">>></span>
+                            <span class="uppercase tracking-wide text-sm">Local Device Storage Only</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-nothing-red mr-4 font-bold">>></span>
+                            <span class="uppercase tracking-wide text-sm">No Cloud Servers / No Tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-nothing-red mr-4 font-bold">>></span>
+                            <span class="uppercase tracking-wide text-sm">Camera: Local Processing Only</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Data Grid -->
+                <section>
+                    <h2 class="dot-text text-2xl uppercase mb-6">Data Matrix</h2>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-px bg-black/10 dark:bg-white/20 border border-black/10 dark:border-white/20">
+                        <div
+                            class="bg-white dark:bg-black p-6 flex justify-between items-center group hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                            <span class="text-gray-500 dark:text-gray-400 uppercase text-sm">Personal Info</span>
+                            <span class="text-nothing-red font-bold uppercase text-xs">Not Collected</span>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-black p-6 flex justify-between items-center group hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                            <span class="text-gray-500 dark:text-gray-400 uppercase text-sm">Location</span>
+                            <span class="text-nothing-red font-bold uppercase text-xs">Not Collected</span>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-black p-6 flex justify-between items-center group hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                            <span class="text-gray-500 dark:text-gray-400 uppercase text-sm">Usage Stats</span>
+                            <span class="text-nothing-red font-bold uppercase text-xs">Not Collected</span>
+                        </div>
+                        <div
+                            class="bg-white dark:bg-black p-6 flex justify-between items-center group hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
+                            <span class="text-gray-500 dark:text-gray-400 uppercase text-sm">Camera Feed</span>
+                            <span class="text-green-600 dark:text-green-500 font-bold uppercase text-xs">Local
+                                Only</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Permissions -->
+                <section>
+                    <h2 class="dot-text text-2xl uppercase mb-6">System Permissions</h2>
+                    <div class="space-y-4">
+                        <div class="border-l border-black/20 dark:border-white/20 pl-6 py-2">
+                            <h3 class="dot-text text-lg uppercase mb-1">Camera</h3>
+                            <p class="text-gray-500 text-xs uppercase tracking-widest mb-2">Purpose: Exercise Detection
+                            </p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Feed is processed in real-time on the
+                                device CPU/GPU. No frames are saved to storage or transmitted.</p>
+                        </div>
+                        <div class="border-l border-black/20 dark:border-white/20 pl-6 py-2">
+                            <h3 class="dot-text text-lg uppercase mb-1">Usage Access</h3>
+                            <p class="text-gray-500 text-xs uppercase tracking-widest mb-2">Purpose: App Blocking</p>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm">Required to monitor foreground
+                                applications and enforce time limits.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Third Party -->
+                <section>
+                    <h2 class="dot-text text-2xl uppercase mb-6">External Links</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div
+                            class="border border-black/20 dark:border-white/20 p-6 hover:border-black dark:hover:border-white transition-colors">
+                            <h3 class="dot-text text-lg uppercase mb-2">Unity Ads</h3>
+                            <p class="text-gray-500 text-xs uppercase mb-4">Free Version Only</p>
+                            <a href="https://unity3d.com/legal/privacy-policy" target="_blank"
+                                class="text-xs uppercase tracking-widest hover:text-nothing-red transition-colors flex items-center">
+                                View Policy <span class="ml-2">-></span>
+                            </a>
+                        </div>
+                        <div
+                            class="border border-black/20 dark:border-white/20 p-6 hover:border-black dark:hover:border-white transition-colors">
+                            <h3 class="dot-text text-lg uppercase mb-2">Google Gemini</h3>
+                            <p class="text-gray-500 text-xs uppercase mb-4">Premium AI Features</p>
+                            <a href="https://policies.google.com/privacy" target="_blank"
+                                class="text-xs uppercase tracking-widest hover:text-nothing-red transition-colors flex items-center">
+                                View Policy <span class="ml-2">-></span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact -->
+                <section class="pt-12 border-t border-black/20 dark:border-white/20">
+                    <h2 class="dot-text text-2xl uppercase mb-6">Communication Channel</h2>
+                    <a href="mailto:fitlock.support@gmail.com"
+                        class="inline-block border border-black dark:border-white px-8 py-4 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors uppercase tracking-widest text-sm font-bold">
+                        fitlock.support@gmail.com
+                    </a>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+        class="py-12 border-t border-black/10 dark:border-white/20 bg-white dark:bg-black transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-xs text-gray-600 uppercase tracking-widest">© 2025 FitLock. End of Line.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 600,
+            easing: 'ease-out-cubic',
+        });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Check local storage or system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function () {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
